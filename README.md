@@ -9,3 +9,6 @@ Our current target for the game is to build a simple CS:GO-style shooter where t
 
 # Goal for each person:
 Since our third teammate had to leave the class for personal reasons, it is just the two of us working on the project now. Ava will mainly focus on the animation design and the art side of the game, including player animations, enemy animations, simple textures, and the overall look of the map. My partner will take on the programming side, like the wave system, enemy AI, player shooting, and general gameplay logic. We will both work together on things like testing, level layout, and making sure the game feels balanced and fun to play.
+
+# Current Gameplay
+https://youtu.be/QGvQCxnXsKw
