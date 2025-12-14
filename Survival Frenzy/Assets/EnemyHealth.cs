@@ -1,13 +1,15 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    int currentHealth;
+    public int pointsOnDeath = 10;
 
-    // THIS ADDS THE EVENT (Fixes your error)
     public Action onDeath;
+
+    int currentHealth;
+    bool dead;
 
     void Start()
     {
@@ -16,19 +18,22 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        if (dead) return;
 
+        currentHealth -= amount;
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     void Die()
     {
-        // Call the event so the spawner knows this enemy died
-        if (onDeath != null)
-            onDeath.Invoke();
+        if (dead) return;
+        dead = true;
+
+        onDeath?.Invoke();
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.RegisterEnemyDied(pointsOnDeath);
 
         Destroy(gameObject);
     }
